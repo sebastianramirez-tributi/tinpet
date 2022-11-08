@@ -16,6 +16,7 @@ jobs:
           for i in ${{github.event.commits}} 
           do
             app=$(echo $i | grep -o '\[.*\]' | sed 's/^.//;s/.$//')
+            echo $app
             if [[ $app == *"all"* ]]; then
               apps=("custom","account")
               break
@@ -30,6 +31,7 @@ jobs:
               break
             fi
           done
+          echo $apps
           echo $apps >> $GITHUB_OUTPUT
 
   task:

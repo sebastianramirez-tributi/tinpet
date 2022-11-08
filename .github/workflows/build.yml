@@ -15,7 +15,8 @@ jobs:
           apps=()
           for i in ${{github.event.commits}} 
           do
-            app=$(echo $i | grep -o '\[.*\]' | sed 's/^.//;s/.$//')
+            message=$i.message
+            app=$(echo $message | grep -o '\[.*\]' | sed 's/^.//;s/.$//')
             echo $app
             if [[ $app == *"all"* ]]; then
               apps=("custom","account")

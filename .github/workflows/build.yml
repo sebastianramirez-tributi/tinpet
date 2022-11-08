@@ -32,8 +32,8 @@ jobs:
     needs: [setup]
     strategy:
       matrix:
-        value: ${{fromJson(needs.setup.outputs.apps-matrix)}}
+        app: ${{fromJson(needs.setup.outputs.apps-matrix)}}
     steps:
-      - name: Matrix value
+      - name: Build app ${{ matrix.app }}
         run: |
-          echo "${{ matrix.value }}"
+          echo "${{ matrix.app }}"

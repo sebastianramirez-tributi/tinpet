@@ -6,16 +6,18 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     outputs:
-      apps_matrix: ${{ steps.apps_matrix.outputs.apps}}
-
+      apps_matrix: ${{ steps.apps_matrix.outputs.apps }}
     steps:
+      - name: commits
+        run: echo ${{ github.event.commits }}
       - name: Get deploy info
         id: apps_matrix
         run: |
           apps=()
-          for i in ${{github.event.commits}} 
+          for i in ${{ github.event.commits }} 
           do
             message=$i.message
+            echo $message
             app=$(echo $message | grep -o '\[.*\]' | sed 's/^.//;s/.$//')
             echo $app
             if [[ $app == *"all"* ]]; then
@@ -42,5 +44,6 @@ jobs:
       matrix:
         value: ${{fromJson(needs.setup.outputs.apps_matrix)}}
     steps:
-      - run: |
+      - name: Matrix value
+        run: |
           echo "${{ matrix.value }}"

@@ -6,43 +6,33 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     outputs:
-      apps_matrix: ${{ steps.apps_matrix.outputs.apps }}
+      apps-matrix: ${{ steps.apps-matrix.outputs.result }}
     steps:
-      - name: commits
-        run: echo ${{ github.event.commits }}
-      - name: Get deploy info
-        id: apps_matrix
-        run: |
-          apps=()
-          for i in ${{ github.event.commits }} 
-          do
-            message=$i.message
-            echo $message
-            app=$(echo $message | grep -o '\[.*\]' | sed 's/^.//;s/.$//')
-            echo $app
-            if [[ $app == *"all"* ]]; then
-              apps=("custom","account")
-              break
-            fi
-            if [[ $app == *"custom"* ]]; then
-              apps+=("custom")
-            fi
-            if [[ $app == *"account"* ]]; then
-              apps+=("account")
-            fi
-            if [ "${#apps[@]}"==2 ]; then
-              break
-            fi
-          done
-          echo $apps
-          echo $apps >> $GITHUB_OUTPUT
+      - uses: actions/github-script@v6
+        env:
+          COMMITS: ${{ toJSON(github.event.commits) }}
+        id: apps-matrix
+        with:
+          script: |
+            const commits = JSON.parse(process.env.COMMITS)
+            const apps = []
+            for (const commit of commits) {
+              if(commit.message.includes('[app:all]')) {
+                apps.push('a','c')
+                break
+              }
+              if(commit.message.includes('[app:a]')) apps.push('a')
+              if(commit.message.includes('[app:c]')) apps.push('c')
+              if(apps.length === 2) break
+            }
+            return apps
 
   task:
     runs-on: ubuntu-latest
     needs: [setup]
     strategy:
       matrix:
-        value: ${{fromJson(needs.setup.outputs.apps_matrix)}}
+        value: ${{fromJson(needs.setup.outputs.apps-matrix)}}
     steps:
       - name: Matrix value
         run: |

@@ -20,7 +20,7 @@ jobs:
             const APP_C = 'app:c'
             const APP_A = 'app:a'
             for (const commit of commits) {
-              const app = commit.message?.match(/\[.*\]/)?.at(0)?.replace(/\s/g,'')?.toLowerCase()              
+              const app = commit.message?.match(/\[.*\]/)?.at(0)?.replace(/\s/g,'')?.toLowerCase() || ''
               if(app.includes(ALL)) {
                 apps.push('a','c')
                 break

@@ -15,9 +15,12 @@ jobs:
         with:
           script: |
             const commits = JSON.parse(process.env.COMMITS)
+            console.log({ commits })
             const apps = []
             for (const commit of commits) {
+              console.log(commit)
               if(commit.message.includes('[app:all]')) {
+                console.log('push all')
                 apps.push('a','c')
                 break
               }

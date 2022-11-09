@@ -25,8 +25,8 @@ jobs:
                 apps.push('a','c')
                 break
               }
-              if(app.includes(APP_A)) apps.push('a')
-              if(app.includes(APP_C)) apps.push('c')
+              if(app.includes(APP_A) && !apps.includes('a')) apps.push('a')
+              if(app.includes(APP_C) && !apps.includes('c')) apps.push('c')
               if(apps.length === 2) break
             }
             if(!apps.length) apps.push('empty')

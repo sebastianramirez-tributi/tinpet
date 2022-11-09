@@ -25,6 +25,7 @@ jobs:
               if(commit.message.includes('[app:c]')) apps.push('c')
               if(apps.length === 2) break
             }
+            if(!apps.length) apps.push('empty')
             return apps
 
       - name: Check result apps
@@ -40,5 +41,6 @@ jobs:
         app: ${{fromJson(needs.setup.outputs.apps-matrix)}}
     steps:
       - name: Build app ${{ matrix.app }}
+        if: matrix.app != 'empty'
         run: |
           echo "${{ matrix.app }}"

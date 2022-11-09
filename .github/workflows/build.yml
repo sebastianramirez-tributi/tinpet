@@ -15,26 +15,22 @@ jobs:
         with:
           script: |
             const commits = JSON.parse(process.env.COMMITS)
-            console.log({ commits })
             const apps = []
+            const ALL = 'app:all'
+            const APP_C = 'app:c'
+            const APP_A = 'app:a'
             for (const commit of commits) {
-              console.log(commit)
-              if(commit.message.includes('[app:all]')) {
-                console.log('push all')
+              const app = commit.message?.match(/\[.*\]/)?.at(0)?.replace(/\s/g,'')?.toLowerCase()              
+              if(app.includes(ALL)) {
                 apps.push('a','c')
                 break
               }
-              if(commit.message.includes('[app:a]')) apps.push('a')
-              if(commit.message.includes('[app:c]')) apps.push('c')
+              if(app.includes(APP_A)) apps.push('a')
+              if(app.includes(APP_C)) apps.push('c')
               if(apps.length === 2) break
             }
             if(!apps.length) apps.push('empty')
             return apps
-
-      - name: Check result apps
-        env:
-          APPS: ${{ steps.apps-matrix.outputs.result }}
-        run: echo $APPS
 
   task:
     runs-on: ubuntu-latest

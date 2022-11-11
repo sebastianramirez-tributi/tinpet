@@ -1,0 +1,16 @@
+name: tests
+
+on:
+  workflow_call:
+    inputs:
+      app:
+        required: true
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: name tests ${{ inputs.app }}
+        if: inputs.app != 'empty'
+        run: echo ${{ inputs.app }}

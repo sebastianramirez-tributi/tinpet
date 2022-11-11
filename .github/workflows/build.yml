@@ -33,13 +33,10 @@ jobs:
             return apps
 
   task:
-    runs-on: ubuntu-latest
     needs: [setup]
     strategy:
       matrix:
         app: ${{fromJson(needs.setup.outputs.apps-matrix)}}
-    steps:
-      - name: Build app ${{ matrix.app }}
-        if: matrix.app != 'empty'
-        run: |
-          echo "${{ matrix.app }}"
+    uses: ./.github/workflows/test.yml
+    with:
+      app: ${{ matrix.app }}

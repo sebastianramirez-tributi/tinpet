@@ -1,6 +1,10 @@
 name: tests
 
-on: [workflow_call]
+on:
+  workflow_call:
+    outputs:
+      apps-matrix:
+        value: ${{ jobs.setup.outputs.apps-matrix }}
 
 jobs:
   setup:

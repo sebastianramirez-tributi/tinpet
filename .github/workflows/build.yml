@@ -38,5 +38,6 @@ jobs:
       matrix:
         app: ${{fromJson(needs.setup.outputs.apps-matrix)}}
     uses: ./.github/workflows/test.yml
+    if: matrix.app != 'empty'
     with:
       app: ${{ matrix.app }}

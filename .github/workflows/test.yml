@@ -12,5 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: name tests ${{ inputs.app }}
-        if: inputs.app != 'empty'
         run: echo ${{ inputs.app }}

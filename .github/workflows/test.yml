@@ -12,5 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     if: inputs.app != 'empty'
     steps:
+      - name: get environment service
+        run: |
+          APP=${{ inputs.app }}
+          if [ $APP == 'c' ]; then
+            echo "service=f" >> $GITHUB_ENV
+          elif [ $APP == 'a' ]; then
+            echo "service=a" >> $GITHUB_ENV
+          fi
+
       - name: name tests ${{ inputs.app }}
-        run: echo ${{ inputs.app }}
+        run: echo ${{ env.service }}

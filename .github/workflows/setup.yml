@@ -33,5 +33,5 @@ jobs:
               if(app.includes(APP_C) && !apps.includes('c')) apps.push('c')
               if(apps.length === 2) break
             }
-            if(!apps.length) apps.push('empty')
+            if(!apps.length) return false
             return apps

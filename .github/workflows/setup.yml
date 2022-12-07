@@ -2,6 +2,10 @@ name: tests
 
 on:
   workflow_call:
+    inputs:
+      exclude:
+        description: app to exclude
+        type: string
     outputs:
       apps-matrix:
         value: ${{ jobs.setup.outputs.apps-matrix }}
@@ -15,23 +19,31 @@ jobs:
       - uses: actions/github-script@v6
         env:
           COMMITS: ${{ toJSON(github.event.commits) }}
+          EXCLUDE: ${{ inputs.exclude }}
         id: apps-matrix
         with:
           script: |
             const commits = JSON.parse(process.env.COMMITS)
-            const apps = []
+            const exclude = process.env.EXCLUDE
+            const apps = new Set()
             const ALL = 'app:all'
             const APP_C = 'app:c'
             const APP_A = 'app:a'
+            const APP_T = 'app:t'
             for (const commit of commits) {
               const app = commit.message?.match(/\[.*\]/)?.at(0)?.replace(/\s/g,'')?.toLowerCase() || ''
               if(app.includes(ALL)) {
-                apps.push('a','c')
+                apps.add('a').add('c').add('t')
                 break
               }
-              if(app.includes(APP_A) && !apps.includes('a')) apps.push('a')
-              if(app.includes(APP_C) && !apps.includes('c')) apps.push('c')
-              if(apps.length === 2) break
+              if(app.includes(APP_A)) apps.add('a')
+              if(app.includes(APP_C)) apps.add('c')
+              if(app.includes(APP_T)) apps.add('t')
+              if(apps.size === 3) break
             }
-            if(!apps.length) return false
-            return apps
+            if(exclude) {
+              apps.delete(exclude)
+            }
+            if(!apps.size) return false
+            console.log(apps)
+            return [...apps]

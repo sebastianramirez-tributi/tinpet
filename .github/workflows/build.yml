@@ -5,6 +5,8 @@ on: [push]
 jobs:
   setup:
     uses: ./.github/workflows/setup.yml
+    with:
+      exclude: a
   # setup:
   #   runs-on: ubuntu-latest
   #   outputs:
@@ -33,6 +35,14 @@ jobs:
   #           }
   #           if(!apps.length) return false
   #           return apps
+
+  result:
+    needs: [setup]
+    runs-on: ubuntu-latest
+    steps:
+      - name: print
+        run: |
+          echo ${{ needs.setup.outputs.apps-matrix }}
 
   task:
     needs: [setup]

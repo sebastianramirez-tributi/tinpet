@@ -1,0 +1,22 @@
+.summary_should_container {
+  padding: 20px 0;
+  position: relative;
+
+  .summary_should_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    padding-left: 10px;
+  }
+
+  .img_print {
+    margin-right: 10px;
+  }
+
+  .summary_btn {
+    width: 193px;
+    height: 64px;
+    font-size: 20px;
+    margin-left: 20px;
+  }
+}

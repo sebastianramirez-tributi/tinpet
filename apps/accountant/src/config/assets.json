@@ -1,0 +1,12 @@
+{
+  "logo": {
+    "src": "/img/accountant/contadia-logo.svg",
+    "alt": "Logo Contadia"
+  },
+  "bgImage": {
+    "src": "/images/ac-background.png"
+  },
+  "referralBtn": {
+    "src": "/img/accountant/referrals/btn-refiere-active.svg"
+  }
+}

@@ -1,0 +1,55 @@
+.filings {
+  &__filter-container {
+    display: flex;
+    align-items: center;
+
+    & > *:not(:first-child) {
+      margin-left: 12px;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__person-filings {
+    width: 100%;
+    margin-top: 16px;
+
+    thead {
+      background: #e8fdf8;
+    }
+
+    thead th:first-child {
+      border-top-left-radius: 4px;
+    }
+
+    thead th:last-child {
+      border-top-right-radius: 4px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid #ddd;
+      padding: 12px 0;
+
+      &:first-child {
+        padding-left: 1rem;
+      }
+
+      &:last-child {
+        padding-right: 0.5rem;
+      }
+
+      & > :not(:first-child) {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+
+  &__person-filings-column {
+    &--year {
+      width: 150px;
+    }
+  }
+}

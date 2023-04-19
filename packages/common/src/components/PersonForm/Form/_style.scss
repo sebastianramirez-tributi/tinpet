@@ -1,0 +1,21 @@
+@import '../variables';
+
+.person-form {
+  margin-top: 120px;
+
+  &__title {
+    color: map-get($colors, text);
+  }
+
+  &__separator {
+    margin: 2rem -24px;
+    width: inherit;
+    height: 1px;
+    background: #ddd;
+  }
+
+  &__submit-button {
+    margin-top: 16px;
+    text-align: center;
+  }
+}

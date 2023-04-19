@@ -1,0 +1,73 @@
+.filings__button {
+  display: inline-block;
+  padding: 4px 16px;
+  line-height: 21px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: transparent;
+  color: #858585;
+  transition: border-color 500ms;
+  text-align: center;
+
+  &:hover {
+    color: #858585;
+  }
+
+  & > *:not(:first-child) {
+    margin: 0 12px;
+  }
+
+  &--success {
+    color: #1fbe92;
+
+    &:hover {
+      border-color: #1fbe92;
+      color: #1fbe92;
+    }
+  }
+
+  &--danger {
+    &:hover {
+      background: #f5222d;
+      border: #f5222d;
+      color: white;
+    }
+  }
+
+  &--outstanding {
+    padding: 16px 32px;
+    background: linear-gradient(to right, #42e0c4, #1fbe92);
+    border: none;
+    color: #f1f1f1;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      opacity: 0.7;
+      color: #f1f1f1;
+    }
+  }
+
+  &--small {
+    padding: 4px 16px;
+  }
+
+  &--icon {
+    height: 2rem;
+    width: 2rem;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 16px;
+    color: #333;
+    transition: background 500ms, color 500ms;
+  }
+
+  &--full-width {
+    display: block;
+    width: 100%;
+  }
+
+  &--left-icon {
+    padding-left: 4px;
+  }
+}

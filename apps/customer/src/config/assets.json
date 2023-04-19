@@ -1,0 +1,13 @@
+{
+  "logo": {
+    "src": "/img/customer/logo-tributi.svg",
+    "alt": "Logo Tributi"
+  },
+  "bgImage": {
+    "src": "/images/tributi-fondo-auth.png",
+    "size": true
+  },
+  "referralBtn": {
+    "src": "/img/shared/party-popper.png"
+  }
+}

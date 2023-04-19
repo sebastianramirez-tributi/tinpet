@@ -1,0 +1,12 @@
+FROM node:14.4.0-buster
+
+RUN mkdir /app
+WORKDIR /app
+
+ADD package-lock.json /app/package-lock.json
+
+ADD . /app
+
+EXPOSE 3000
+
+CMD npm start -- --host 0.0.0.0

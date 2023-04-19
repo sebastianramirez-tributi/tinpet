@@ -1,0 +1,10 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "integrationFolder": "cypress/e2e",
+  "reporter": "junit",
+  "reporterOptions": {
+    "mochaFile": "cypress/results/result.xml",
+    "toConsole": true
+  },
+  "projectId": "1hswjk"
+}

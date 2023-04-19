@@ -1,0 +1,170 @@
+export default {
+  colors: {
+    text: {
+      light: '#333',
+      main: '#535352',
+      semiDark: '#555555',
+      dark: '#333',
+      black: '#000000',
+      gray44: '#909090',
+      link: '#838383',
+      backgroundContrast: '#fff',
+      assistantTableHeader: '#9a9a9a',
+      questionRender: {
+        title: '#0d3478',
+        multichoice: '#000',
+        singlechoice: '#000',
+        label: '#000',
+        header: 'rgba(0, 0, 0, 0.85)',
+        feedback: '#f5a523',
+      },
+      links: {
+        visited: '#1890ff',
+      },
+    },
+    disabled: {
+      main: '#d9d9d9',
+      textContrast: '#000',
+    },
+    white: {
+      main: '#fff',
+      dark: '#ececec',
+      textContrast: '#333',
+    },
+    primary: {
+      brighter: '#5372A9',
+      bright: '#72F0E1',
+      light: '#8B97C6',
+      lightrgba: 'rgb(147, 112, 219, .4)',
+      main: '#304087',
+      mainrgba: 'rgb(160, 39, 231, .2)',
+      dark: '#663399',
+      darker: '#48117F',
+      textContrast: 'white',
+      active: '#7085D8',
+      background: '#3A4189',
+      lighter: '#5777AD',
+    },
+    secondary: {
+      light: 'lightblue',
+      main: '#304087',
+      dark: 'darkblue',
+      textContrast: 'white',
+    },
+    highlight: {
+      main: '#74a7ff',
+      main40: '#74a7ff66',
+      partial: '#f5a523',
+      partial40: '#f5a52366',
+      complete: '#7dd321',
+      complete40: '#7dd32166',
+    },
+    danger: {
+      light: '#F56565',
+      main: '#E53E3E',
+      dark: '#C53030',
+      textContrast: 'white',
+    },
+    warning: {
+      outline: '#f7dbac',
+      light: '#f5a523',
+      main: '#f5a523',
+      dark: '#f5a523',
+      textContrast: 'white',
+      background: '#fffbe6',
+      border: '#ffe58f',
+    },
+    suspicious: {
+      main: '#ffd966',
+    },
+    table: {
+      odd: '#ede7f6',
+      even: '#d1c4e9',
+      expand: 'rgb(239, 239, 239)',
+    },
+    black: {
+      main: '#000',
+      65: 'rgba(0, 0, 0, 0.65)',
+      45: '#00000073',
+      75: '#000000bf',
+    },
+    iconHelp: {
+      main: '#000',
+    },
+    gray: {
+      athens: '#f6f6f7',
+      line: '#ececec',
+      gallery: '#f0f0f0',
+      mercury: '#EAEAEA',
+      alto: '#d9d9d9',
+      ghost: '#C6C9CF',
+      dusty: '#979797',
+    },
+    green: {
+      harp: '#f1f8f5',
+      lily: '#e6f7ff',
+    },
+    icon: {
+      done: 'rgb(126, 211, 33)',
+      pending: '#1890FF',
+      none: 'rgba(0, 0, 0, 0.65)',
+      confirm: '#faad14',
+    },
+    black06: 'rgba(0, 0, 0, 0.06)',
+    black08: 'rgba(0, 0, 0, 0.08)',
+    black10: 'rgba(0,0,0, 0.1)',
+    black15: 'rgba(0,0,0, 0.15)',
+    black20: 'rgba(0,0,0, 0.2)',
+    black45: 'rgba(0,0,0, 0.45)',
+    black60: 'rgba(0, 0, 0, 0.6)',
+    black65: 'rgba(0, 0, 0, 0.65)',
+    black80: 'rgba(0, 0, 0, 0.8)',
+    black85: 'rgba(0, 0, 0, 0.85)',
+  },
+  fontFamily: {
+    body: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji',
+  },
+  fontSize: {
+    questionRender: {
+      title: '1rem',
+      multichoice: '0.875rem',
+      title2: '0.875rem',
+      singlechoice: '0.875rem',
+    },
+  },
+  fontWeight: {
+    questionRender: {
+      title: 600,
+      multichoice: 400,
+      singlechoice: 400,
+    },
+  },
+  questionRenderContainer: {
+    border: '1px solid #cecece',
+    radius: '.3125rem',
+    shadow: '0 2px 20px 0 rgba(0,0,0,0.06)',
+  },
+  buttonContainer: {
+    background: 'linear-gradient( 180deg,#ededed,#FFFFFF )',
+    alignment: 'center',
+  },
+  radius: {
+    questionRender: '.3125rem',
+  },
+  shadow: {
+    card: '0 0 10px 0 rgba(0, 0, 0, 0.1)',
+  },
+  typography: {
+    fontSize: {
+      tabTitle: '12px',
+      couponTitle: '1rem',
+      couponInput: '.75rem',
+    },
+  },
+  appearance: {
+    radius: 5,
+  },
+  layout: {
+    couponTitleDirection: 'column',
+  },
+}

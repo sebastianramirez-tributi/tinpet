@@ -1,0 +1,15 @@
+{
+  "extends": "@tributi-co/eslint-config-tributi",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "globals": {
+    "process": true,
+    "console": true,
+    "heap": true,
+    "translate": true
+  }
+}

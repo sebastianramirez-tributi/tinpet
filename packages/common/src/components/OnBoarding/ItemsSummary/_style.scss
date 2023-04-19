@@ -1,0 +1,28 @@
+@import '../../../assets/scss/global/theme.scss';
+
+.items__summary_container {
+  margin-top: 2rem;
+
+  .ant-collapse-header {
+    background-color: $gallery;
+  }
+
+  .collapse {
+    margin: 1.25rem;
+  }
+
+  .panel__title {
+    font-weight: bold;
+    font-size: 1rem;
+    color: $black-06;
+  }
+
+  .panel__icon {
+    background: $primary-color;
+    color: $secondary-color;
+    padding: 5px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+  }
+}

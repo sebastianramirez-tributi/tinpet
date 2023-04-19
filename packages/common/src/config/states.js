@@ -1,0 +1,5 @@
+export const NO_INICIADO = 'unStarted'
+export const ONBOARDING = 'onboarding'
+export const ASISTIDO = 'Asistido'
+export const CREATED = 'created'
+export const APPROVED = 'approved'

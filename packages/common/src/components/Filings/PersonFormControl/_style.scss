@@ -1,0 +1,12 @@
+form .person-form-control.person-form-control--group {
+  display: flex;
+}
+
+form .person-form-control__group-control {
+  flex: 1;
+}
+
+form
+  .person-form-control__group-control.person-form-control__group-control--big {
+  flex: 3;
+}
